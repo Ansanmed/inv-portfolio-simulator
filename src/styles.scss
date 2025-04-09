@@ -1,10 +1,60 @@
 /* You can add global styles to this file, and also import other style files */
-@import "tailwindcss";
+
+@import "@angular/material/prebuilt-themes/azure-blue.css";
+@import "bootstrap/dist/css/bootstrap.min.css";
+
 html,
 body {
   height: 100%;
+  background-color: var(--color-gray-200);
 }
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mdc-notched-outline__notch {
+  border-right: none;
+}
+
+.mat-mdc-snack-bar-container.custom-toast {
+  min-width: 250px;
+  margin: 10px;
+  border-radius: 4px;
+}
+
+.mat-mdc-snack-bar-container.info-toast {
+  --mdc-snackbar-container-color: rgba(
+    25,
+    118,
+    210,
+    0.2
+  ); // Azul con 50% de transparencia (#1976d2 en rgba)
+  --mat-snack-bar-button-color: rgb(0, 0, 0);
+  --mdc-snackbar-supporting-text-color: rgb(0, 0, 0);
+  border: 2px solid #0d47a1; // Borde más grueso
+}
+
+.mat-mdc-snack-bar-container.warning-toast {
+  --mdc-snackbar-container-color: rgba(
+    255,
+    152,
+    0,
+    0.2
+  ); // Ámbar con 50% de transparencia (#ff9800 en rgba)
+  --mdc-snackbar-supporting-text-color: rgb(0, 0, 0);
+  --mat-snack-bar-button-color: rgb(0, 0, 0);
+  border: 2px solid #f57c00; // Borde más grueso
+}
+
+.mat-mdc-snack-bar-container.error-toast {
+  --mdc-snackbar-container-color: rgba(
+    244,
+    67,
+    54,
+    0.2
+  ); // Rojo con 50% de transparencia (#f44336 en rgba)
+  --mdc-snackbar-supporting-text-color: rgb(0, 0, 0);
+  --mat-snack-bar-button-color: rgb(0, 0, 0);
+  border: 2px solid #d32f2f; // Borde más grueso
 }

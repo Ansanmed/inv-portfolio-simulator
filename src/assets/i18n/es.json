@@ -1,1 +1,35 @@
-{ "helloWorld": "¡Hola mundo!" }
+{
+  "login": {
+    "title": "Iniciar Sesión",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "submit": "Iniciar sesión",
+    "register": "Regístrate",
+    "emailRequired": "El correo es obligatorio",
+    "emailInvalid": "Correo inválido",
+    "passwordRequired": "La contraseña es obligatoria",
+    "passwordMinLength": "La contraseña debe tener al menos 6 caracteres"
+  },
+  "register": {
+    "title": "Crear Cuenta",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "confirmPassword": "Confirmar contraseña",
+    "submit": "Registrarse",
+    "emailRequired": "El correo es obligatorio",
+    "emailInvalid": "Correo inválido",
+    "passwordRequired": "La contraseña es obligatoria",
+    "passwordWeak": "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial",
+    "confirmPasswordRequired": "La confirmación de la contraseña es obligatoria",
+    "passwordMismatch": "Las contraseñas no coinciden"
+  },
+  "header": {
+    "title": "Simulador de Portafolios",
+    "language": "Idioma",
+    "languages": {
+      "es": "Español",
+      "en": "Inglés",
+      "de": "Alemán"
+    }
+  }
+}

@@ -1,1 +1,35 @@
-{ "helloWorld": "Hallo Welt!" }
+{
+  "login": {
+    "title": "Anmelden",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "submit": "Anmelden",
+    "register": "Registrieren",
+    "emailRequired": "E-Mail ist erforderlich",
+    "emailInvalid": "Ungültige E-Mail",
+    "passwordRequired": "Passwort ist erforderlich",
+    "passwordMinLength": "Das Passwort muss mindestens 6 Zeichen lang sein"
+  },
+  "register": {
+    "title": "Konto Erstellen",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "confirmPassword": "Passwort bestätigen",
+    "submit": "Registrieren",
+    "emailRequired": "E-Mail ist erforderlich",
+    "emailInvalid": "Ungültige E-Mail",
+    "passwordRequired": "Passwort ist erforderlich",
+    "passwordWeak": "Das Passwort muss mindestens 8 Zeichen lang sein und eine Großbuchstabe, eine Kleinbuchstabe, eine Zahl und ein Sonderzeichen enthalten",
+    "confirmPasswordRequired": "Passwortbestätigung ist erforderlich",
+    "passwordMismatch": "Die Passwörter stimmen nicht überein"
+  },
+  "header": {
+    "title": "Portfoliosimulator",
+    "language": "Sprache",
+    "languages": {
+      "es": "Spanisch",
+      "en": "Englisch",
+      "de": "Deutsch"
+    }
+  }
+}

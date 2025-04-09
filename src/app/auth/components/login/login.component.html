@@ -1,0 +1,53 @@
+<div
+  class="row d-flex justify-content-center min-vh-10 my-5"
+  *transloco="let t"
+>
+  <form
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit()"
+    class="col-12 col-md-6 p-4 p-sm-5 bg-light rounded shadow d-flex flex-column gap-3"
+  >
+    <h2>{{ t("login.title") }}</h2>
+    <mat-form-field>
+      <mat-label>{{ t("login.email") }}</mat-label>
+      <input matInput type="email" formControlName="email" />
+      @if (email?.touched && email?.errors?.["required"]) {
+        <mat-error>
+          {{ t("login.emailRequired") }}
+        </mat-error>
+      }
+      @if (email?.touched && email?.errors?.["email"]) {
+        <mat-error>
+          {{ t("login.emailInvalid") }}
+        </mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>{{ t("login.password") }}</mat-label>
+      <input matInput type="password" formControlName="password" />
+      @if (password?.touched && password?.errors?.["required"]) {
+        <mat-error>
+          {{ t("login.passwordRequired") }}
+        </mat-error>
+      }
+      @if (password?.touched && password?.errors?.["minlength"]) {
+        <mat-error>
+          {{ t("login.passwordMinLength") }}
+        </mat-error>
+      }
+    </mat-form-field>
+    <div class="d-flex w-100 flex-column flex-sm-row justify-content-between">
+      <a mat-button href="/register">{{ t("login.register") }}</a>
+
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="loginForm.invalid"
+      >
+        {{ t("login.submit") }}
+      </button>
+    </div>
+  </form>
+</div>

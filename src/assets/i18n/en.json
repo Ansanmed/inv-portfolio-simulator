@@ -1,1 +1,35 @@
-{ "helloWorld": "Hello World!" }
+{
+  "login": {
+    "title": "Log In",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Log In",
+    "register": "Register",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Invalid email",
+    "passwordRequired": "Password is required",
+    "passwordMinLength": "Password must be at least 6 characters long"
+  },
+  "register": {
+    "title": "Create Account",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "submit": "Register",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Invalid email",
+    "passwordRequired": "Password is required",
+    "passwordWeak": "Password must be at least 8 characters long, with an uppercase letter, a lowercase letter, a number, and a special character",
+    "confirmPasswordRequired": "Password confirmation is required",
+    "passwordMismatch": "Passwords do not match"
+  },
+  "header": {
+    "title": "Portfolio Simulator",
+    "language": "Language",
+    "languages": {
+      "es": "Spanish",
+      "en": "English",
+      "de": "German"
+    }
+  }
+}

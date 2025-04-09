@@ -1,0 +1,25 @@
+<header class="shadow d-flex align-items-center bg-light">
+  <mat-toolbar
+    class="w-100 min-vh-50 d-flex align-items-center justify-content-between"
+    *transloco="let t"
+  >
+    <h1>
+      {{ t("header.title") }}
+    </h1>
+    <form>
+      <mat-form-field>
+        <mat-select
+          [(ngModel)]="selectedLang"
+          (selectionChange)="changeLanguage($event.value)"
+          name="languages"
+        >
+          @for (lang of availableLangs; track $index) {
+            <mat-option [value]="lang">
+              {{ t("header.languages." + lang) }}
+            </mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </mat-toolbar>
+</header>

@@ -1,19 +1,23 @@
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
-import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
+import { TranslocoModule } from '@jsverse/transloco';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MatButtonModule, TranslocoModule],
+  imports: [
+    HeaderComponent,
+    RouterOutlet,
+    MatButtonModule,
+    TranslocoModule,
+    FooterComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
   title = 'inv-portfolio-simulator';
-  private readonly translocoService = inject(TranslocoService);
-
-  changeLanguage(lang: string) {
-    this.translocoService.setActiveLang(lang);
-  }
 }
