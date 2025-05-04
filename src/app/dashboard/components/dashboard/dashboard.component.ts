@@ -5,6 +5,6 @@ import { PortfolioListComponent } from '../../../portfolio/components/portfolio-
   selector: 'app-dashboard',
   imports: [PortfolioListComponent],
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.scss',
+  styleUrl: './dashboard.component.css',
 })
 export class DashboardComponent {}

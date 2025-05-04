@@ -24,6 +24,7 @@ import { ToastService } from '../../../shared/services/toast.service';
   standalone: true,
   selector: 'app-register',
   templateUrl: './register.component.html',
+  styleUrl: './register.component.css',
   imports: [
     CommonModule,
     ReactiveFormsModule,

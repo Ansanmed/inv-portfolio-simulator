@@ -24,7 +24,7 @@ import { SecuritySearchItem } from '../../../dashboard/data-access/models/securi
     MatListModule,
   ],
   templateUrl: './instrument-search.component.html',
-  styleUrl: './instrument-search.component.scss',
+  styleUrl: './instrument-search.component.css',
 })
 export class InstrumentSearchComponent {
   searchControl = new FormControl('');

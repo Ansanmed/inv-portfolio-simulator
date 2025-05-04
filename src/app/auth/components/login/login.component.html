@@ -1,11 +1,8 @@
-<div
-  class="row d-flex justify-content-center min-vh-10 my-5"
-  *transloco="let t"
->
+<div class="flex flex-wrap justify-center min-h-[10vh] my-5" *transloco="let t">
   <form
     [formGroup]="loginForm"
     (ngSubmit)="onSubmit()"
-    class="col-12 col-md-6 p-4 p-sm-5 bg-light rounded shadow d-flex flex-column gap-3"
+    class="w-full md:w-1/2 p-4 sm:p-5 bg-gray-100 rounded-md shadow-md flex flex-col gap-3"
   >
     <h2>{{ t("login.title") }}</h2>
     <mat-form-field>
@@ -37,7 +34,7 @@
         </mat-error>
       }
     </mat-form-field>
-    <div class="d-flex w-100 flex-column flex-sm-row justify-content-between">
+    <div class="flex w-full flex-col sm:flex-row justify-between">
       <a mat-button href="/register">{{ t("login.register") }}</a>
 
       <button

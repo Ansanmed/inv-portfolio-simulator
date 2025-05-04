@@ -29,7 +29,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatInputModule,
   ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss',
+  styleUrl: './login.component.css',
 })
 export class LoginComponent {
   loginForm: FormGroup;

@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-header',
   templateUrl: 'header.component.html',
-  styleUrl: 'header.component.scss',
+  styleUrl: 'header.component.css',
   imports: [
     CommonModule,
     MatToolbarModule,

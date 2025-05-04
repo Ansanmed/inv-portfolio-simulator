@@ -16,7 +16,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     FooterComponent,
   ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'inv-portfolio-simulator';

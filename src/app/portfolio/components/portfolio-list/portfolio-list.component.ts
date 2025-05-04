@@ -26,7 +26,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
     MatDividerModule,
   ],
   templateUrl: './portfolio-list.component.html',
-  styleUrl: './portfolio-list.component.scss',
+  styleUrl: './portfolio-list.component.css',
 })
 export class PortfolioListComponent {
   destroyRef = inject(DestroyRef);

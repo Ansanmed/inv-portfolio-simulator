@@ -17,7 +17,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './earnings.component.html',
-  styleUrl: './earnings.component.scss',
+  styleUrl: './earnings.component.css',
 })
 export class EarningsComponent implements OnInit, OnDestroy {
   @Input()
