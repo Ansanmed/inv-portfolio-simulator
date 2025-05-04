@@ -63,8 +63,6 @@ export class LoginComponent {
         )
         .subscribe((response) => {
           if (response.token) {
-            console.log(response.token);
-
             this.router.navigate(['/dashboard']);
           }
         });

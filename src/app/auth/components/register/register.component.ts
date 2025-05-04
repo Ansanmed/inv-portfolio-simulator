@@ -1,4 +1,3 @@
-// src/app/auth/components/register.component.ts
 import { Component, DestroyRef, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
@@ -17,8 +16,9 @@ import { AuthService } from '../../services/auth.service';
 import { strongPasswordValidator } from '../../../utils/validators';
 import { Router } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { catchError, EMPTY, Subject, switchMap } from 'rxjs';
+import { catchError, of } from 'rxjs';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ToastService } from '../../../shared/services/toast.service';
 
 @Component({
   standalone: true,
@@ -36,31 +36,15 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 })
 export class RegisterComponent {
   registrationForm: FormGroup;
+  loading = false;
+  error: string | null = null;
 
   private destroyRef = inject(DestroyRef);
-
-  private submitSubject$ = new Subject();
-
-  registrationResponse$ = this.submitSubject$.pipe(
-    switchMap(() =>
-      this.authService
-        .register(
-          this.registrationForm.value.email,
-          this.registrationForm.value.password,
-        )
-        .pipe(
-          takeUntilDestroyed(this.destroyRef),
-          catchError((err) => {
-            console.error('Error en registro:', err);
-            return EMPTY;
-          }),
-        ),
-    ),
-  );
 
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
+    private readonly toastService: ToastService,
     private router: Router,
   ) {
     this.registrationForm = this.fb.group({
@@ -82,7 +66,31 @@ export class RegisterComponent {
   }
 
   onSubmit() {
-    this.submitSubject$.next(null);
+    if (this.registrationForm.invalid) {
+      return;
+    }
+
+    this.loading = true;
+    this.error = null;
+
+    const { email, password } = this.registrationForm.value;
+
+    this.authService
+      .register(email, password)
+      .pipe(
+        takeUntilDestroyed(this.destroyRef),
+        catchError((err) => {
+          this.toastService.error(err.code);
+          this.loading = false;
+          return of(null);
+        }),
+      )
+      .subscribe((response) => {
+        this.loading = false;
+        if (response && response.accessToken) {
+          this.router.navigate(['/dashboard']);
+        }
+      });
   }
 
   get email() {

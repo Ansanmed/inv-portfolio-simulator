@@ -9,11 +9,11 @@
   >
     <h2>{{ t("register.title") }}</h2>
     <div class="invisible">
-      <input type="text" formControlName="honeypot" />
+      <input type="text" formControlName="honeypot"/>
     </div>
     <mat-form-field>
       <mat-label>{{ t("register.email") }}</mat-label>
-      <input matInput type="email" formControlName="email" />
+      <input matInput type="email" formControlName="email"/>
       @if (email?.touched && email?.errors?.["required"]) {
         <mat-error>{{ t("register.emailRequired") }}</mat-error>
       }
@@ -32,7 +32,7 @@
       }"
     >
       <mat-label>{{ t("register.password") }}</mat-label>
-      <input matInput type="password" formControlName="password" />
+      <input matInput type="password" formControlName="password"/>
       @if (password?.touched && password?.errors?.["required"]) {
         <mat-error>{{ t("register.passwordRequired") }}</mat-error>
       }
@@ -46,14 +46,12 @@
 
     <mat-form-field appearance="outline">
       <mat-label>{{ t("register.confirmPassword") }}</mat-label>
-      <input matInput type="password" formControlName="confirmPassword" />
+      <input matInput type="password" formControlName="confirmPassword"/>
       @if (confirmPassword?.touched && confirmPassword?.errors?.["required"]) {
         <mat-error>{{ t("register.confirmPasswordRequired") }}</mat-error>
       }
-      @if (
-        confirmPassword?.touched &&
-        confirmPassword?.errors?.["passwordMismatch"]
-      ) {
+      @if (confirmPassword?.touched &&
+      confirmPassword?.errors?.["passwordMismatch"]) {
         <mat-error>{{ t("register.passwordMismatch") }}</mat-error>
       }
     </mat-form-field>
@@ -62,13 +60,9 @@
         mat-raised-button
         color="primary"
         type="submit"
-        [disabled]="registrationForm.invalid"
+        [disabled]="registrationForm.invalid || loading"
       >
-        @defer (when registrationResponse$ | async) {
-          {{ t("register.submit") }}
-        } @loading {
-          <mat-spinner diameter="20"></mat-spinner>
-        }
+        {{ t("register.submit") }}
       </button>
     </div>
   </form>

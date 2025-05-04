@@ -1,0 +1,18 @@
+<div class="d-flex">
+  @if (amount) {
+    <p>
+      <span [ngClass]="{ red: amount.amount < 0, green: amount.amount > 0 }">{{
+        amount.amount
+          | currency
+            : amount.currency
+            : "symbol"
+            : getDecimalPlaces()
+            : getLocale()
+      }}</span>
+      <span> / </span>
+      <span [ngClass]="{ red: amount.amount < 0, green: amount.amount > 0 }">
+        {{ percentage + "%" }}
+      </span>
+    </p>
+  }
+</div>

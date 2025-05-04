@@ -31,5 +31,16 @@
       "en": "English",
       "de": "German"
     }
+  },
+  "portfolioList": {
+    "portfolioValue": "Value: ",
+    "portfolioEarnings": "Performance: ",
+    "managePortfolio": "Manage portfolio",
+    "actions": {
+      "createPortfolio": "Create new portfolio",
+      "editPortfolio": "Edit portfolio",
+      "eliminatePortfolio": "Delete portfolio",
+      "seeDetails": "See details"
+    }
   }
 }

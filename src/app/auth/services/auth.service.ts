@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { AuthApiService } from '../data-access/auth-api.service';
 import { LoginResponse } from '../models/login-response';
@@ -10,6 +10,8 @@ import { RegisterResponse } from '../models/register-response';
 })
 export class AuthService {
   private token: string | null = null;
+
+  private isAuthenticated$ = new BehaviorSubject(false);
 
   constructor(private readonly authApiService: AuthApiService) {}
 
@@ -30,8 +32,8 @@ export class AuthService {
   register(email: string, password: string): Observable<RegisterResponse> {
     return this.authApiService.register({ email, password }).pipe(
       tap((response) => {
-        if (response && response.token) {
-          this.setToken(response.token);
+        if (response && response.accessToken) {
+          this.setToken(response.accessToken);
         }
       }),
       catchError((error) => {
@@ -44,13 +46,14 @@ export class AuthService {
   private setToken(token: string): void {
     this.token = token;
     localStorage.setItem('accessToken', token);
+    this.isAuthenticated$.next(true);
   }
 
   getToken(): string | null {
     if (!this.token) {
       this.token = localStorage.getItem('accessToken');
     }
-    console.log(localStorage.getItem('accessToken'));
+    this.isAuthenticated$.next(!!this.token);
 
     return this.token;
   }
@@ -83,9 +86,13 @@ export class AuthService {
     }
     return !this.isTokenExpired(token);
   }
+  isAuthenticatedObservable(): Observable<boolean> {
+    return this.isAuthenticated$.asObservable();
+  }
 
   logout(): void {
     this.token = null;
     localStorage.removeItem('accessToken');
+    this.isAuthenticated$.next(false);
   }
 }

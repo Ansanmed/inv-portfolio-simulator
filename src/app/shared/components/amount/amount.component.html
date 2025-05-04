@@ -1,0 +1,14 @@
+<div class="d-flex">
+  @if (amount) {
+    <p>
+      {{
+        amount.amount
+          | currency
+            : amount.currency
+            : "symbol"
+            : getDecimalPlaces()
+            : getLocale()
+      }}
+    </p>
+  }
+</div>

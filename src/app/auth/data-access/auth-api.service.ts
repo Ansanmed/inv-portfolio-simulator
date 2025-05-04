@@ -23,7 +23,7 @@ export class AuthApiService {
   }
 
   register(body: RegisterRequest): Observable<RegisterResponse> {
-    return this.http.post<LoginResponse>(
+    return this.http.post<RegisterResponse>(
       `${this.baseUrl}/api/auth/register`,
       body,
     );

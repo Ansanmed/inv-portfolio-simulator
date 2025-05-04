@@ -1,1 +1,81 @@
-<p>portfolio-list works!</p>
+<div *transloco="let t">
+  @for (portfolio of portfoliosPlaceholder; track $index) {
+    <mat-card class="mt-2" appearance="outlined">
+      <mat-card-header>
+        <div
+          class="d-flex flex-column flex-sm-row justify-content-between w-100"
+        >
+          <div>
+            <mat-card-title> {{ portfolio.name }}</mat-card-title>
+            @if (portfolio.description) {
+              <mat-card-subtitle>{{ portfolio.description }}</mat-card-subtitle>
+            }
+          </div>
+          <div>
+            <button
+              class="d-none d-sm-block"
+              mat-icon-button
+              [matMenuTriggerFor]="menu"
+              aria-label="Example icon-button with a menu"
+            >
+              <mat-icon>more_vert</mat-icon>
+            </button>
+
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>
+                <mat-icon>read_more</mat-icon>
+                <span>{{ t("portfolioList.actions.seeDetails") }}</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon>edit</mat-icon>
+                <span>{{ t("portfolioList.actions.editPortfolio") }}</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon>delete</mat-icon>
+                <span>{{ t("portfolioList.actions.eliminatePortfolio") }}</span>
+              </button>
+            </mat-menu>
+          </div>
+        </div>
+      </mat-card-header>
+      <mat-divider class="my-2"></mat-divider>
+      <mat-card-content>
+        <div
+          class="d-flex w-100 flex-column flex-sm-row justify-content-between"
+        >
+          <div>
+            <p class="m-0">{{ t("portfolioList.portfolioValue") }}</p>
+            <app-amount [amount]="portfolio.value" />
+          </div>
+          <span class="align-self-end">
+            <p class="m-0">{{ t("portfolioList.portfolioEarnings") }}</p>
+            <app-earnings
+              [amount]="portfolio.earnings.value"
+              [percentage]="portfolio.earnings.percentage"
+            />
+          </span>
+        </div>
+        <div class="d-flex justify-content-center d-sm-none">
+          <button mat-raised-button [matMenuTriggerFor]="menu" color="primary">
+            <mat-icon>more_vert</mat-icon>
+            {{ t("portfolioList.managePortfolio") }}
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  }
+  <mat-card class="mt-2" appearance="outlined">
+    <mat-card-content>
+      <div class="d-flex justify-content-center">
+        <button
+          (click)="openSearchModal()"
+          mat-raised-button
+          aria-label="Button to create a new portfolio"
+        >
+          <mat-icon>add</mat-icon>
+          {{ t("portfolioList.actions.createPortfolio") }}
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
